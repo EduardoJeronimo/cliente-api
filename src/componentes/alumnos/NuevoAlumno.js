@@ -22,7 +22,7 @@ function NuevoAlumno(){
         apellido:'',
         edad:'',
         email:'',
-        estado:'',
+        estado:'',   
     })
 
     const actualizarState = e =>{
