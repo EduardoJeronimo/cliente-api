@@ -11,6 +11,18 @@ import {Link} from 'react-router-dom';
             guardarAlumnos(AlumnosConsulta.data);
             console.log(alumnos);
         }
+
+        const deleteAlumno = async (id) => {
+            try{
+                const response = await ClienteAxios.delete('/alumnos'+id+'');
+                alert("Alumno Eliminado");
+                window.location.reload();
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+
         useEffect( () => {
             ConsultarAPI();
         },[]);
@@ -37,7 +49,8 @@ import {Link} from 'react-router-dom';
                         <i class="fas fa-pen-alt"></i>
                         Editar Alumno
                     </a>
-                    <button type="button" class="btn btn-rojo btn-eliminar">
+                    <button type="button" class="btn btn-rojo btn-eliminar"
+                    onClick={() => deleteAlumno(alumno.id)}>
                         <i class="fas fa-times"></i>
                         Eliminar Alumno
                     </button>
